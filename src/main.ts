@@ -44,7 +44,7 @@ async function run() {
     console.log(`version: ${version}`);
 
     // setup rpm tree
-    await exec.exec('rpmdev-setuptree');
+    await exec.exec('mkdir -p ~/rpmbuild/SPECS');
 
     // Copy spec file from path specFile to /github/home/rpmbuild/SPECS/
     await exec.exec(`cp ${specFile.srcFullPath} ${specFile.destFullPath}`);
