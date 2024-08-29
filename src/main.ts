@@ -44,7 +44,7 @@ async function run() {
     console.log(`version: ${version}`);
 
     // setup rpm tree
-    await exec.exec('mkdir -p ~/rpmbuild/SPECS');
+    await exec.exec('mkdir -p /github/home/rpmbuild/SPECS');
 
     // Copy spec file from path specFile to /github/home/rpmbuild/SPECS/
     await exec.exec(`cp ${specFile.srcFullPath} ${specFile.destFullPath}`);
@@ -67,7 +67,7 @@ async function run() {
 	}
 
     // Installs additional packages
-    const additionalPackages = core.getInput('additional_packages'); // user input, eg: '["centos-release-scl"]'
+    const additionalPackages = core.getInput('additional_packages'); // user input, eg: '["cargo"]'
 	if (additionalPackages) {
 		const arr = JSON.parse(additionalPackages);
 		for (let i = 0; i < arr.length; i++) {
