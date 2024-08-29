@@ -1,6 +1,6 @@
-name: 'RPM Build'
+name: 'RPM Build via RockyLinux'
 description: 'Build RPMs from spec file and upload it as Artifact or Release Asset'
-author: 'Naveenraj M'
+author: 'Ante de Baas'
 
 inputs: 
   spec_file:
@@ -29,6 +29,6 @@ runs:
 
 branding:
   icon: 'package'
-  color: 'red'
+  color: 'green'
 
   
