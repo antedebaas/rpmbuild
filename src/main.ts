@@ -62,12 +62,22 @@ async function run() {
 		const arr = JSON.parse(additionalRepos);
 		for (let i = 0; i < arr.length; i++) {
 			console.log(`Installing repo': ${arr[i]}`);
-    		await exec.exec(`yum install -y ${arr[i]}`);
+    		await exec.exec(`dnf install -y ${arr[i]}`);
+		};
+	}
+
+    // Installs additional packages
+    const additionalPackages = core.getInput('additional_packages'); // user input, eg: '["centos-release-scl"]'
+	if (additionalPackages) {
+		const arr = JSON.parse(additionalPackages);
+		for (let i = 0; i < arr.length; i++) {
+			console.log(`Installing package': ${arr[i]}`);
+    		await exec.exec(`dnf install -y ${arr[i]}`);
 		};
 	}
 
 	// Installs build dependencies
-    await exec.exec(`yum-builddep -y ${specFile.destFullPath}`);
+    await exec.exec(`dnf builddep -y ${specFile.destFullPath}`);
 
     // Execute rpmbuild , -ba generates both RPMS and SPRMS
     try {

@@ -10,6 +10,9 @@ inputs:
   additional_repos:
     description: 'A list of additional repositories to enable'
     required: false
+  additional_packages:
+    description: 'A list of additional packages to install'
+    required: false
 
 outputs:
   source_rpm_path:

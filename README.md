@@ -15,6 +15,7 @@ Create a workflow `.yml` file in your repositories `.github/workflows` directory
 
 - `spec_file`: The path to the spec file in your repo. [**required**]
 - `additional_repos`: A list of additional repositories (in JSON-array format) that you want enabled to build your rpm. [**optional**]
+- `additional_packages`: A list of additional packages (in JSON-array format) that you want installed. [**optional**]
 
 ### Outputs
 
